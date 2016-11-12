@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.View.OnKeyListener;
 
 public class Hangman extends AppCompatActivity {
+    String abc = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,11 +21,27 @@ public class Hangman extends AppCompatActivity {
         b.setOnClickListener(new Button.OnClickListener(){
             public void onClick(View v)  {
                 TextView resp = (TextView) findViewById(R.id.response);
-                EditText name = (EditText) findViewById(R.id.textView);
-                String str = "Welcome " + name.getText().toString() + " !";
-                resp.setText(str);
+                EditText input = (EditText) findViewById(R.id.textView);
+                String guess = input.getText().toString();
+                abc = changeABC(guess,abc);
+                resp.setText(abc);
+
             }
         });
     }
+
+    // changes the abc string based off of the guess
+    public static String changeABC(String guess, String abc) {
+        String beginning = abc.substring(0, abc.indexOf(guess));
+        String end = "";
+
+        if (!guess.equals("Z")) {
+            end = abc.substring(abc.indexOf(guess) + 1);
+        } else {
+            beginning = abc.substring(0, abc.indexOf(guess));
+        }
+        return beginning + end;
+    }
+
 }
 
