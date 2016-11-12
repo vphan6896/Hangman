@@ -8,7 +8,7 @@ public class HellurWorld {
 		String name = scanner.nextLine();
 		System.out.println("Hellur " + name);
 		System.out.println("Hyuk is da man");
-		
+		System.out.println("Guys Anthony contributed);
 		
 	}
 	
