@@ -8,6 +8,20 @@ public class HellurWorld {
 		String name = scanner.nextLine();
 		System.out.println("Hellur " + name);
 		System.out.println("Hyuk is da man");
+		
+		
 	}
+	
+	// returns a string that consists of the alphabet separated by underscores
+	public static String makeABC() {
+		String abc = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+		String newABC = "";
 
+		for (int i = 0; i < abc.length() - 1; i++) {
+			newABC += abc.charAt(i) + "_";
+		}
+		newABC += abc.charAt(abc.length() - 1);
+
+		return newABC;
+	}
 }
