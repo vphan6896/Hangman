@@ -7,7 +7,7 @@ public class HellurWorld {
 		Scanner scanner = new Scanner (System.in);
 		String name = scanner.nextLine();
 		System.out.println("Hellur " + name);
-
+		System.out.println("Hyuk is da man");
 	}
 
 }
