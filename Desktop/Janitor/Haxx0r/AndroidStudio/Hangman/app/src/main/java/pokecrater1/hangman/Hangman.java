@@ -25,39 +25,70 @@ public class Hangman extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hangman);
-        Button b = (Button) this.findViewById(R.id.button1);
         initialABC = (TextView) this.findViewById(R.id.initialABC);
         initialABC.setText(abc);
         phrase = (TextView) this.findViewById(R.id.phraseid);
-        newUnderScores = underScores(word,underScores);
+        newUnderScores = underScores(word, underScores);
         phrase.setText(newUnderScores);
         numWrong = (TextView) findViewById(R.id.numWrong);
         numWrong.setText("Number Wrong: " + counter);
-            b.setOnClickListener(new Button.OnClickListener() {
-                public void onClick(View v) {
-                        TextView resp = (TextView) findViewById(R.id.response);
-                        EditText input = (EditText) findViewById(R.id.textView);
-                        String guess = input.getText().toString();
-                        initialABC.setText("");
-                        abc = changeABC(guess, abc);
-                         resp.setText(abc);
-                        // changes the word into underscores
-                        newUnderScores = guessResults(guess, word, newUnderScores);
-                        TextView phrase = (TextView) findViewById(R.id.phraseid);
-                        phrase.setText(newUnderScores);
-                        counter = checkWinOrLose(guess, word, counter);
-                    TextView numWrong = (TextView) findViewById(R.id.numWrong);
-                    numWrong.setText("Number Wrong: " + counter);
-                    if(counter >= 5) {
-                        gameOver();
-                    }
-                }
-
-            });
-
+        submitButton();
+        playAgainButton();
     }
+
+    public void playAgainButton() {
+        Button playAgain = (Button) this.findViewById(R.id.buttonPlay);
+        playAgain.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                counter = 0;
+                abc = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+                word = movieList(movieList).toUpperCase();
+                setContentView(R.layout.activity_hangman);
+                initialABC = (TextView) findViewById(R.id.initialABC);
+                initialABC.setText(abc);
+                phrase = (TextView) findViewById(R.id.phraseid);
+                newUnderScores = underScores(word, underScores);
+                phrase.setText(newUnderScores);
+                numWrong = (TextView) findViewById(R.id.numWrong);
+                numWrong.setText("Number Wrong: " + counter);
+
+                submitButton();
+
+                playAgainButton();
+            }
+        });
+    }
+
+    public void submitButton() {
+        Button b = (Button) this.findViewById(R.id.button1);
+        b.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                TextView resp = (TextView) findViewById(R.id.response);
+                EditText input = (EditText) findViewById(R.id.textView);
+                String guess = input.getText().toString();
+                initialABC.setText("");
+                abc = changeABC(guess, abc);
+                resp.setText(abc);
+                // changes the word into underscores
+                newUnderScores = guessResults(guess, word, newUnderScores);
+                TextView phrase = (TextView) findViewById(R.id.phraseid);
+                phrase.setText(newUnderScores);
+                counter = checkWinOrLose(guess, word, counter);
+                TextView numWrong = (TextView) findViewById(R.id.numWrong);
+                numWrong.setText("Number Wrong: " + counter);
+                if (counter >= 5) {
+                    gameOver();
+                }
+            }
+
+        });
+    }
+
 
     public static String underScores(String word, String underScores) {
         for (int index = 0; index < word.length(); index++) {
@@ -155,4 +186,6 @@ public class Hangman extends AppCompatActivity {
         Button b = (Button) this.findViewById(R.id.button1);
         b.setEnabled(false);
     }
+
+
 }
