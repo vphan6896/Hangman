@@ -10,6 +10,20 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="pokecrater1.hangman.Hangman">
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button1"
+        android:text="Submit"
+        android:layout_marginBottom="38dp"
+        android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@+id/buttonPlay"
+        android:layout_toStartOf="@+id/buttonPlay"
+        android:layout_marginRight="65dp"
+        android:layout_marginEnd="65dp" />
+
+    <!--        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />-->
 
     <TextView
         android:layout_width="wrap_content"
@@ -26,26 +40,6 @@
         android:id="@+id/textView"
         android:textSize="24dp"
         android:layout_centerVertical="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/response"
-        android:textSize="19dp"
-        android:layout_above="@+id/button1"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="32dp" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/initialABC"
-        android:textSize="19dp"
-        android:layout_alignBaseline="@+id/response"
-        android:layout_alignBottom="@+id/response"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -69,26 +63,54 @@
         android:layout_alignParentStart="true"
         android:layout_marginTop="47dp" />
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/youWin"
+        android:textSize="50dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignBottom="@+id/textView" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/initialABC"
+        android:textSize="19dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/response"
+        android:textSize="19dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/button1"
-        android:text="Submit"
-        android:layout_marginBottom="38dp"
-        android:layout_alignParentBottom="true"
-        android:layout_toLeftOf="@+id/buttonPlay"
-        android:layout_toStartOf="@+id/buttonPlay"
-        android:layout_marginRight="65dp"
-        android:layout_marginEnd="65dp" />
-
-    <Button
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:id="@+id/buttonPlay"
-    android:text="Play Again"
-        android:layout_marginRight="50dp"
-        android:layout_marginEnd="50dp"
-        android:layout_below="@+id/response"
+        android:id="@+id/buttonPlay"
+        android:text="Play Again"
+        android:layout_marginRight="44dp"
+        android:layout_marginEnd="44dp"
+        android:layout_alignBaseline="@+id/button1"
+        android:layout_alignBottom="@+id/button1"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/statusMessage"
+        android:textSize="19dp"
+        android:layout_marginTop="26dp"
+        android:layout_below="@+id/numWrong"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+
 </RelativeLayout>
