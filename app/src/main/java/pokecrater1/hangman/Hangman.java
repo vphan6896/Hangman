@@ -9,13 +9,15 @@ import android.widget.EditText;
 import android.widget.Button;
 import android.view.View;
 
+import org.w3c.dom.Text;
+
 import java.util.Random;
 
 public class Hangman extends Activity {
     String abc = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     TextView initialABC;
     String[] movieList = new String[20];
-    String word = movieList(movieList).toUpperCase();
+    String word = initList(movieList).toUpperCase();
     TextView phrase;
     String underScores = "";
     String newUnderScores = "";
@@ -53,7 +55,7 @@ public class Hangman extends Activity {
             public void onClick(View view) {
                 counter = 0;
                 abc = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-                word = movieList(movieList).toUpperCase();
+                word = initList(movieList).toUpperCase();
                 setContentView(R.layout.activity_hangman);
                 initialABC = (TextView) findViewById(R.id.initialABC);
                 initialABC.setText(abc);
@@ -190,7 +192,8 @@ public class Hangman extends Activity {
         return currentPhrase;
     }
 
-    public static String movieList(String[] movieList) {
+    //Not only initializes but also returns the randomly chosen movie
+    public static String initList(String[] movieList) {
 //        movieList[0] = "The Godfather";
 //        movieList[1] = "The Shawshank Redemption";
 //        movieList[2] = "Spirited Away";
@@ -214,7 +217,6 @@ public class Hangman extends Activity {
         Random r = new Random();
         int choose = r.nextInt(1);
         return movieList[choose];
-
     }
 
     // changes the abc string based off of the guess
@@ -254,17 +256,21 @@ public class Hangman extends Activity {
     //this is where the game ends
     public void gameOver(boolean win) {
         Button b = (Button) this.findViewById(R.id.button1);
+        TextView newStatus = (TextView) findViewById(R.id.statusMessage);
+        newStatus.setText("No more attempts can be made");
         b.setEnabled(false);
         if (win) {
             youHaveWon();
         } else {
+            TextView phrase = (TextView) findViewById(R.id.phraseid);
+            phrase.setText("The phrase was " + word);
             youHaveLost();
         }
     }
 
     public void youHaveWon() {
         TextView youWin = (TextView) findViewById(R.id.youWin);
-        youWin.setText("You Won!!!");
+        youWin.setText("You Won!{´◕ ◡ ◕｀}");
     }
 
     public void youHaveLost() {
