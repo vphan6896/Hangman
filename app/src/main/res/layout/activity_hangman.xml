@@ -114,6 +114,7 @@
         android:layout_alignEnd="@+id/youWin"
         android:layout_alignTop="@+id/youWin"
         android:src="@drawable/ultimatehead"
+        android:visibility="invisible"
         android:id="@+id/head"
         android:layout_alignRight="@+id/youWin" />
 
@@ -123,6 +124,7 @@
         android:layout_height="218dp"
         android:layout_alignBottom="@+id/youWin"
         android:layout_alignStart="@+id/arms"
+        android:visibility="invisible"
         android:src="@drawable/hanger"
         android:layout_alignLeft="@+id/arms" />
 
@@ -131,6 +133,7 @@
         android:layout_height="wrap_content"
         android:layout_alignEnd="@+id/youWin"
         android:layout_below="@+id/head"
+        android:visibility="invisible"
         android:src="@drawable/body"
         android:id="@+id/body"
         android:layout_alignRight="@+id/youWin" />
@@ -140,6 +143,7 @@
         android:layout_height="wrap_content"
         android:layout_alignEnd="@+id/youWin"
         android:layout_below="@+id/head"
+        android:visibility="invisible"
         android:src="@drawable/body1"
         android:id="@+id/arms"
         android:layout_alignRight="@+id/youWin" />
@@ -149,6 +153,7 @@
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/head"
         android:layout_below="@+id/body"
+        android:visibility="invisible"
         android:src="@drawable/body1"
         android:id="@+id/legs"
         android:layout_alignLeft="@+id/head" />

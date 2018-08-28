@@ -1,10 +1,9 @@
 package pokecrater1.hangman;
 
 import android.app.Activity;
-import android.content.res.Resources;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.EditText;
 import android.widget.Button;
@@ -25,6 +24,8 @@ public class Hangman extends Activity {
     String status = "";
     EditText input;
     Button b;
+    int numMistakesAllowed = 5;
+    private ImageView[] bodyParts = new ImageView[numMistakesAllowed];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +35,7 @@ public class Hangman extends Activity {
         b = (Button) this.findViewById(R.id.button1);
         initialABC = (TextView) this.findViewById(R.id.initialABC);
         initialABC.setText(abc);
+        initGraphics();
         phrase = (TextView) this.findViewById(R.id.phraseid);
         input = (EditText) findViewById(R.id.textView);
         newUnderScores = underScores(word, underScores);
@@ -120,6 +122,14 @@ public class Hangman extends Activity {
     public static void hideSoftKeyboard(Activity activity) {
         InputMethodManager inputMethodManager = (InputMethodManager) activity.getSystemService(Activity.INPUT_METHOD_SERVICE);
         inputMethodManager.hideSoftInputFromWindow(activity.getCurrentFocus().getWindowToken(), 0);
+    }
+
+    public void initGraphics() {
+        bodyParts[0] = (ImageView)findViewById(R.id.hanger);
+        bodyParts[1] = (ImageView)findViewById(R.id.head);
+        bodyParts[2] = (ImageView)findViewById(R.id.body);
+        bodyParts[3] = (ImageView)findViewById(R.id.arms);
+        bodyParts[4] = (ImageView)findViewById(R.id.legs);
     }
 
     //Converts strings to asterisks, spaces to underscores
@@ -225,8 +235,9 @@ public class Hangman extends Activity {
     // checks to see if the guess was a letter of the secret phrase and then
     // increments counter if guess is wrong, and leaves it alone if it is correct
 
-    public static int checkWinOrLose(String guess, String phrase, int counter) {
+    public int checkWinOrLose(String guess, String phrase, int counter) {
         if (!phrase.contains(guess)) {
+            bodyParts[counter].setVisibility(View.VISIBLE);
             counter++;
         }
         return counter;
