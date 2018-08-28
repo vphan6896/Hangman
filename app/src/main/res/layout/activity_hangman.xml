@@ -35,40 +35,37 @@
         android:layout_marginBottom="49dp" />
 
     <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:id="@+id/textView"
-        android:textSize="24dp"
+        android:layout_width="208dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
         android:layout_centerVertical="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:inputType="text" />
+        android:inputType="text"
+        android:textSize="24dp" />
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:id="@+id/phraseid"
-        android:textSize="20dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="54dp" />
-
-    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="51dp"
+        android:textSize="20dp" />
+
+    <TextView
         android:id="@+id/numWrong"
-        android:textSize="20dp"
-        android:layout_below="@+id/phraseid"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="47dp" />
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="106dp"
+        android:textSize="20dp" />
 
     <TextView
         android:id="@+id/youWin"
-        android:layout_width="264dp"
-        android:layout_height="159dp"
-        android:layout_above="@+id/button1"
+        android:layout_width="266dp"
+        android:layout_height="109dp"
+        android:layout_below="@+id/textView"
         android:layout_centerHorizontal="true"
         android:textSize="50dp" />
 
@@ -103,14 +100,59 @@
         android:layout_alignParentEnd="true" />
 
     <TextView
+        android:id="@+id/statusMessage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/statusMessage"
-        android:textSize="19dp"
-        android:layout_marginTop="26dp"
-        android:layout_below="@+id/numWrong"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="164dp"
+        android:textSize="19dp" />
+
+    <ImageView
+        android:layout_width="41dp"
+        android:layout_height="34dp"
+        android:layout_alignEnd="@+id/youWin"
+        android:layout_alignTop="@+id/youWin"
+        android:src="@drawable/ultimatehead"
+        android:id="@+id/head"
+        android:layout_alignRight="@+id/youWin" />
+
+    <ImageView
+        android:id="@+id/hanger"
+        android:layout_width="84dp"
+        android:layout_height="218dp"
+        android:layout_alignBottom="@+id/youWin"
+        android:layout_alignStart="@+id/arms"
+        android:src="@drawable/hanger"
+        android:layout_alignLeft="@+id/arms" />
+
+    <ImageView
+        android:layout_width="39dp"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/youWin"
+        android:layout_below="@+id/head"
+        android:src="@drawable/body"
+        android:id="@+id/body"
+        android:layout_alignRight="@+id/youWin" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/youWin"
+        android:layout_below="@+id/head"
+        android:src="@drawable/body1"
+        android:id="@+id/arms"
+        android:layout_alignRight="@+id/youWin" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/head"
+        android:layout_below="@+id/body"
+        android:src="@drawable/body1"
+        android:id="@+id/legs"
+        android:layout_alignLeft="@+id/head" />
+
 
 
 </RelativeLayout>

@@ -257,7 +257,8 @@ public class Hangman extends Activity {
     }
 
     public void youHaveLost() {
-
+        TextView youWin = (TextView) findViewById(R.id.youWin);
+        youWin.setText("You Lost.(╯°□°）╯︵ ┻━┻");
     }
 }
 
